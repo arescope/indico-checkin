@@ -57,6 +57,10 @@ angular.module('Checkinapp.services', []).
                 oauthWindow.addEventListener('loadstart', function (event) {
                     oauthLocationChanged(event.url, oauthClient, server_id, onSuccess);
                 });
+                oauthWindow.addEventListener('loaderror', function(event) {
+                    alert('error: ' + event.message);
+                    oauthWindow.close();
+                });
             }, 500);
         },
         failure
